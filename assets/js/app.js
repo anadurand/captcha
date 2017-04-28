@@ -12,7 +12,7 @@ reload.addEventListener("click", function(e){
 
 createCaptcha();
 function createCaptcha(){
-  var alpha = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
+  var alpha = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z","A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
   var number = ["0","1","2","3","4","5","6","7","8","9","'"];
   for (i=0;i<6;i++){
      var a = alpha[Math.floor(Math.random() * alpha.length)];
@@ -25,6 +25,12 @@ function createCaptcha(){
   }
   var captchaCode = a + b + c + d + e + f + g;
   document.getElementById("captchaCode").value = captchaCode;
+  var code = document.getElementById('captchaCode');
+  var answerCode = document.getElementById('answer');
+
+  code.style.color = changeColor();
+  answerCode.style.color = changeColor();
+
 }
 
 function ValidarCaptcha(){
@@ -36,6 +42,7 @@ function ValidarCaptcha(){
     }
     else{
       alert("Codigo invalido, vuelva a intentarlo");
+
     }
 }
 function removeSpaces(text){
@@ -46,7 +53,7 @@ function changeColor(){
     var letras = '0123456789ABCDEF';
     var color = '#';
     for (var i = 0; i < 6; i++ ) {
-        color += letters[Math.floor(Math.random() * 16)];
+        color += letras[Math.floor(Math.random() * 16)];
     }
     return color;
 
