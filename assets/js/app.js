@@ -23,7 +23,6 @@ function createCaptcha(){
      var f = number[Math.floor(Math.random() * number.length)];
      var g = alpha[Math.floor(Math.random() * alpha.length)];
   }
-
   var captchaCode = a + b + c + d + e + f + g;
   document.getElementById("captchaCode").value = captchaCode;
 }
@@ -44,5 +43,11 @@ function removeSpaces(text){
 }
 
 function changeColor(){
-  
+    var letras = '0123456789ABCDEF';
+    var color = '#';
+    for (var i = 0; i < 6; i++ ) {
+        color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+
 }
